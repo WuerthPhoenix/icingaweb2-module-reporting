@@ -8,7 +8,7 @@ use Icinga\Module\Reporting\Web\DivDecorator;
 use Icinga\Module\Reporting\Web\Flatpickr;
 use ipl\Html\Form;
 use ipl\Html\FormElement\SubmitElementInterface;
-use dipl\Translation\TranslationHelper;
+use Icinga\Util\Translator;
 
 class TimeframeForm extends Form
 {
@@ -37,8 +37,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'start', [
             'required'            => true,
-            'label'               => $this->translate('Start', 'reporting'),
-            'placeholder'         => $this->translate('Select a start date or provide a textual date/time description', 'reporting'),
+            'label'               => Translator::translate('Start', 'reporting'),
+            'placeholder'         => Translator::translate('Select a start date or provide a textual date/time description', 'reporting'),
             'data-allow-input'    => true,
             'data-enable-time'    => true,
             'data-enable-seconds' => true,
@@ -47,8 +47,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'end', [
             'required'             => true,
-            'label'                => $this->translate('End', 'reporting'),
-            'placeholder'          => $this->translate('Select an end date or provide a textual date/time description', 'reporting'),
+            'label'                => Translator::translate('End', 'reporting'),
+            'placeholder'          => Translator::translate('Select an end date or provide a textual date/time description', 'reporting'),
             'data-allow-input'     => true,
             'data-enable-time'     => true,
             'data-enable-seconds'  => true,
@@ -58,12 +58,12 @@ class TimeframeForm extends Form
         ]);
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? $this->translate('Create Time Frame', 'reporting') : $this->translate('Update Time Frame', 'reporting')
+            'label' => $this->id === null ? Translator::translate('Create Time Frame', 'reporting') : Translator::translate('Update Time Frame', 'reporting')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => $this->translate('Remove Time Frame', 'reporting'),
+                'label'          => Translator::translate('Remove Time Frame', 'reporting'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);

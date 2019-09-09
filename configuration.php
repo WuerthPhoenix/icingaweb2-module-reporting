@@ -4,6 +4,7 @@
 namespace Icinga\Module\Reporting {
 
     use Icinga\Application\Version;
+    use Icinga\Util\Translator;
 
     /** @var \Icinga\Application\Modules\Module $this */
 
@@ -20,14 +21,14 @@ namespace Icinga\Module\Reporting {
     ));
 
     $this->provideConfigTab('backend', array(
-        'title' => $this->translate('Configure the database backend', 'reporting'),
-        'label' => $this->translate('Backend', 'reporting'),
+        'title' => Translator::translate('Configure the database backend', 'reporting'),
+        'label' => Translator::translate('Backend', 'reporting'),
         'url'   => 'config/backend'
     ));
 
     $this->provideConfigTab('mail', array(
-        'title' => $this->translate('Configure mail', 'reporting'),
-        'label' => $this->translate('Mail', 'reporting'),
+        'title' => Translator::translate('Configure mail', 'reporting'),
+        'label' => Translator::translate('Mail', 'reporting'),
         'url'   => 'config/mail'
     ));
 }

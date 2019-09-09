@@ -9,7 +9,7 @@ use Icinga\Module\Reporting\ProvidedReports;
 use Icinga\Module\Reporting\Report;
 use Icinga\Module\Reporting\Web\DivDecorator;
 use ipl\Html\Form;
-use dipl\Translation\TranslationHelper;
+use Icinga\Util\Translator;
 
 class SendForm extends Form
 {
@@ -39,17 +39,17 @@ class SendForm extends Form
 
         $this->addElement('select', 'type', [
             'required'  => true,
-            'label'     => $this->translate('Type', 'reporting'),
-            'options'   => [null => $this->translate('Please choose', 'reporting')] + $types
+            'label'     => Translator::translate('Type', 'reporting'),
+            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $types
         ]);
 
         $this->addElement('textarea', 'recipients', [
             'required' => true,
-            'label'    => $this->translate('Recipients', 'reporting')
+            'label'    => Translator::translate('Recipients', 'reporting')
         ]);
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->translate('Send Report', 'reporting')
+            'label' => Translator::translate('Send Report', 'reporting')
         ]);
     }
 

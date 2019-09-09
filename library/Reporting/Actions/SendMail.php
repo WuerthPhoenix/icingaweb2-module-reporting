@@ -13,7 +13,7 @@ use Icinga\Web\StyleSheet;
 use ipl\Html\Form;
 use ipl\Html\Html;
 use ipl\Html\HtmlString;
-use dipl\Translation\TranslationHelper;
+use Icinga\Util\Translator;
 
 class SendMail extends ActionHook
 {
@@ -108,13 +108,13 @@ class SendMail extends ActionHook
 
         $form->addElement('select', 'type', [
             'required'  => true,
-            'label'     => $this->translate('Type', 'reporting'),
+            'label'     => Translator::translate('Type', 'reporting'),
             'options'   => $types
         ]);
 
         $form->addElement('textarea', 'recipients', [
             'required' => true,
-            'label'    => $this->translate('Recipients', 'reporting')
+            'label'    => Translator::translate('Recipients', 'reporting')
         ]);
     }
 }

@@ -9,7 +9,7 @@ use Icinga\Module\Reporting\ProvidedReports;
 use Icinga\Module\Reporting\Web\DivDecorator;
 use ipl\Html\Form;
 use ipl\Html\FormElement\SubmitElementInterface;
-use dipl\Translation\TranslationHelper;
+use Icinga\Util\Translator;
 
 class ReportForm extends Form
 {
@@ -31,19 +31,19 @@ class ReportForm extends Form
 
         $this->addElement('text', 'name', [
             'required'  => true,
-            'label'     => $this->translate('Name', 'reporting')
+            'label'     => Translator::translate('Name', 'reporting')
         ]);
 
         $this->addElement('select', 'timeframe', [
             'required'  => true,
-            'label'     => $this->translate('Time Frame', 'reporting'),
-            'options'   => [null => $this->translate('Please choose', 'reporting')] + $this->listTimeframes()
+            'label'     => Translator::translate('Time Frame', 'reporting'),
+            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $this->listTimeframes()
         ]);
 
         $this->addElement('select', 'reportlet', [
             'required'  => true,
-            'label'     => $this->translate('Report', 'reporting'),
-            'options'   => [null => $this->translate('Please choose', 'reporting')] + $this->listReports(),
+            'label'     => Translator::translate('Report', 'reporting'),
+            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $this->listReports(),
             'class'     => 'autosubmit'
         ]);
 
@@ -64,12 +64,12 @@ class ReportForm extends Form
         }
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? $this->translate('Create Report', 'reporting') : $this->translate('Update Report', 'reporting')
+            'label' => $this->id === null ? Translator::translate('Create Report', 'reporting') : Translator::translate('Update Report', 'reporting')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => $this->translate('Remove Report', 'reporting'),
+                'label'          => Translator::translate('Remove Report', 'reporting'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);

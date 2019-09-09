@@ -3,7 +3,7 @@
 
 namespace Icinga\Module\Reporting\Web;
 
-use dipl\Translation\TranslationHelper;
+use Icinga\Util\Translator;
 
 trait ReportsAndTimeframesTabs
 {
@@ -17,14 +17,14 @@ trait ReportsAndTimeframesTabs
         $tabs = $this->getTabs();
 
         $tabs->add('reports', [
-                'title'     => $this->translate('Show Reports', 'reporting'),
-                'label'     => $this->translate('Reports', 'reporting'),
+                'title'     => Translator::translate('Show Reports', 'reporting'),
+                'label'     => Translator::translate('Reports', 'reporting'),
                 'url'       => 'reporting/reports'
         ]);
 
         $tabs->add('timeframes', [
-            'title'     => $this->translate('Show Time Frames', 'reporting'),
-            'label'     => $this->translate('Time Frames', 'reporting'),
+            'title'     => Translator::translate('Show Time Frames', 'reporting'),
+            'label'     => Translator::translate('Time Frames', 'reporting'),
             'url'       => 'reporting/timeframes'
         ]);
 
