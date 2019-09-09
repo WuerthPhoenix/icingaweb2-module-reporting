@@ -8,6 +8,7 @@ use Icinga\Module\Reporting\Web\DivDecorator;
 use Icinga\Module\Reporting\Web\Flatpickr;
 use ipl\Html\Form;
 use ipl\Html\FormElement\SubmitElementInterface;
+use dipl\Translation\TranslationHelper;
 
 class TimeframeForm extends Form
 {
@@ -36,8 +37,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'start', [
             'required'            => true,
-            'label'               => 'Start',
-            'placeholder'         => 'Select a start date or provide a textual datetime description',
+            'label'               => $this->translate('Start'),
+            'placeholder'         => $this->translate('Select a start date or provide a textual datetime description'),
             'data-allow-input'    => true,
             'data-enable-time'    => true,
             'data-enable-seconds' => true,
@@ -46,8 +47,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'end', [
             'required'             => true,
-            'label'                => 'End',
-            'placeholder'          => 'Select a end date or provide a textual datetime description',
+            'label'                => $this->translate('End'),
+            'placeholder'          => $this->translate('Select a end date or provide a textual datetime description'),
             'data-allow-input'     => true,
             'data-enable-time'     => true,
             'data-enable-seconds'  => true,
@@ -57,12 +58,12 @@ class TimeframeForm extends Form
         ]);
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? 'Create Time Frame' : 'Update Time Frame'
+            'label' => $this->id === null ? $this->translate('Create Time Frame') : $this->translate('Update Time Frame')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => 'Remove Time Frame',
+                'label'          => $this->translate('Remove Time Frame'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);

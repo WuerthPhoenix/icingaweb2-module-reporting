@@ -3,6 +3,7 @@
 
 namespace Icinga\Module\Reporting\Controllers;
 
+use dipl\Translation\TranslationHelper;
 use GuzzleHttp\Psr7\ServerRequest;
 use Icinga\Module\Reporting\Database;
 use Icinga\Module\Reporting\Timeframe;

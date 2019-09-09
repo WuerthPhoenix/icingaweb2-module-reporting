@@ -3,6 +3,8 @@
 
 namespace Icinga\Module\Reporting\Web;
 
+use dipl\Translation\TranslationHelper;
+
 trait ReportsAndTimeframesTabs
 {
     /**

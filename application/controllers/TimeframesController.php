@@ -12,6 +12,7 @@ use ipl\Html\Html;
 use ipl\Sql\Select;
 use reportingipl\Web\Url;
 use reportingipl\Web\Widget\ButtonLink;
+use dipl\Translation\TranslationHelper;
 
 class TimeframesController extends Controller
 {
@@ -60,11 +61,11 @@ class TimeframesController extends Controller
                             'tr',
                             null,
                             [
-                                Html::tag('th', null, 'Name'),
-                                Html::tag('th', null, 'Start'),
-                                Html::tag('th', null, 'End'),
-                                Html::tag('th', null, 'Date Created'),
-                                Html::tag('th', null, 'Date Modified')
+                                Html::tag('th', null, $this->translate('Name')),
+                                Html::tag('th', null, $this->translate('Start')),
+                                Html::tag('th', null, $this->translate('End')),
+                                Html::tag('th', null, $this->translate('Date Created')),
+                                Html::tag('th', null, $this->translate('Date Modified'))
                             ]
                         )
                     ),
@@ -74,7 +75,7 @@ class TimeframesController extends Controller
 
             $this->addContent($table);
         } else {
-            $this->addContent(Html::tag('p', null, 'No timeframes created yet.'));
+            $this->addContent(Html::tag('p', null, $this->translate('No timeframes created yet.')));
         }
     }
 

@@ -46,7 +46,7 @@ class ReportController extends Controller
 
     public function editAction()
     {
-        $this->setTitle('Edit Report');
+        $this->setTitle($this->translate('Edit Report'));
 
         $values = [
             'name'      => $this->report->getName(),
@@ -74,7 +74,7 @@ class ReportController extends Controller
 
     public function sendAction()
     {
-        $this->setTitle('Send Report');
+        $this->setTitle($this->translate('Send Report'));
 
         $form = new SendForm();
         $form
@@ -88,7 +88,7 @@ class ReportController extends Controller
 
     public function scheduleAction()
     {
-        $this->setTitle('Schedule');
+        $this->setTitle($this->translate('Schedule'));
 
         $form = new ScheduleForm();
         $form
@@ -197,10 +197,10 @@ class ReportController extends Controller
         $actions = new ActionBar();
 
         $actions
-            ->addLink('Modify', Url::fromPath('reporting/report/edit', ['id' => $reportId]), 'edit')
-            ->addLink('Schedule', Url::fromPath('reporting/report/schedule', ['id' => $reportId]), 'calendar-empty')
+            ->addLink($this->translate('Modify'), Url::fromPath('reporting/report/edit', ['id' => $reportId]), 'edit')
+            ->addLink($this->translate('Schedule'), Url::fromPath('reporting/report/schedule', ['id' => $reportId]), 'calendar-empty')
             ->add($download)
-            ->addLink('Send', Url::fromPath('reporting/report/send', ['id' => $reportId]), 'forward');
+            ->addLink($this->translate('Send'), Url::fromPath('reporting/report/send', ['id' => $reportId]), 'forward');
 
         return $actions;
     }

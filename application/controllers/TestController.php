@@ -8,6 +8,7 @@ use Icinga\Module\Reporting\Timeframe;
 use Icinga\Module\Reporting\Web\Controller;
 use ipl\Html\Table;
 use ipl\Sql\Select;
+use dipl\Translation\TranslationHelper;
 
 class TestController extends Controller
 {
@@ -23,7 +24,11 @@ class TestController extends Controller
 
         $table->getAttributes()->add('class', 'common-table');
 
-        $table->getHeader()->add(Table::row(['Name', 'Title', 'Start', 'End'], null, 'th'));
+        $table->getHeader()->add(Table::row([$this->translate('Name'),
+                                             $this->translate('Title'),
+                                             $this->translate('Start'),
+                                             $this->translate('End')],
+                                             null, 'th'));
 
         foreach ($this->getDb()->select($select) as $row) {
             $timeframe = (new Timeframe())
@@ -40,7 +45,7 @@ class TestController extends Controller
             ]));
         }
 
-        $this->setTitle('Timeframes');
+        $this->setTitle($this->translate('Timeframes'));
 
         $this->addContent($table);
     }

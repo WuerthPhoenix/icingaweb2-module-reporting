@@ -9,6 +9,7 @@ use Icinga\Module\Reporting\ProvidedReports;
 use Icinga\Module\Reporting\Web\DivDecorator;
 use ipl\Html\Form;
 use ipl\Html\FormElement\SubmitElementInterface;
+use dipl\Translation\TranslationHelper;
 
 class ReportForm extends Form
 {
@@ -30,19 +31,19 @@ class ReportForm extends Form
 
         $this->addElement('text', 'name', [
             'required'  => true,
-            'label'     => 'Name'
+            'label'     => $this->translate('Name')
         ]);
 
         $this->addElement('select', 'timeframe', [
             'required'  => true,
-            'label'     => 'Timeframe',
-            'options'   => [null => 'Please choose'] + $this->listTimeframes()
+            'label'     => $this->translate('Timeframe'),
+            'options'   => [null => $this->translate('Please choose')] + $this->listTimeframes()
         ]);
 
         $this->addElement('select', 'reportlet', [
             'required'  => true,
-            'label'     => 'Report',
-            'options'   => [null => 'Please choose'] + $this->listReports(),
+            'label'     => $this->translate('Report'),
+            'options'   => [null => $this->translate('Please choose')] + $this->listReports(),
             'class'     => 'autosubmit'
         ]);
 
@@ -63,12 +64,12 @@ class ReportForm extends Form
         }
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? 'Create Report' : 'Update Report'
+            'label' => $this->id === null ? $this->translate('Create Report') : $this->translate('Update Report')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => 'Remove Report',
+                'label'          => $this->translate('Remove Report'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);

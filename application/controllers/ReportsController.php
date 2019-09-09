@@ -12,6 +12,7 @@ use ipl\Html\Html;
 use ipl\Sql\Select;
 use reportingipl\Web\Url;
 use reportingipl\Web\Widget\ButtonLink;
+use dipl\Translation\TranslationHelper;
 
 class ReportsController extends Controller
 {
@@ -62,11 +63,11 @@ class ReportsController extends Controller
                             'tr',
                             null,
                             [
-                                Html::tag('th', null, 'Name'),
-                                Html::tag('th', null, 'Author'),
-                                Html::tag('th', null, 'Timeframe'),
-                                Html::tag('th', null, 'Date Created'),
-                                Html::tag('th', null, 'Date Modified')
+                                Html::tag('th', null, $this->translate('Name')),
+                                Html::tag('th', null, $this->translate('Author')),
+                                Html::tag('th', null, $this->translate('Timeframe')),
+                                Html::tag('th', null, $this->translate('Date Created')),
+                                Html::tag('th', null, $this->translate('Date Modified'))
                             ]
                         )
                     ),
@@ -76,7 +77,7 @@ class ReportsController extends Controller
 
             $this->addContent($table);
         } else {
-            $this->addContent(Html::tag('p', null, 'No reports created yet.'));
+            $this->addContent(Html::tag('p', null, $this->translate('No reports created yet.')));
         }
     }
 
