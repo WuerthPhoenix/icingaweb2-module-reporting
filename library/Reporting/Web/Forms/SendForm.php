@@ -39,17 +39,17 @@ class SendForm extends Form
 
         $this->addElement('select', 'type', [
             'required'  => true,
-            'label'     => $this->translate('Type'),
-            'options'   => [null => $this->translate('Please choose')] + $types
+            'label'     => $this->translate('Type', 'reporting'),
+            'options'   => [null => $this->translate('Please choose', 'reporting')] + $types
         ]);
 
         $this->addElement('textarea', 'recipients', [
             'required' => true,
-            'label'    => $this->translate('Recipients')
+            'label'    => $this->translate('Recipients', 'reporting')
         ]);
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->translate('Send Report')
+            'label' => $this->translate('Send Report', 'reporting')
         ]);
     }
 

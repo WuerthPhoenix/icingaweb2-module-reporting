@@ -20,14 +20,14 @@ namespace Icinga\Module\Reporting {
     ));
 
     $this->provideConfigTab('backend', array(
-        'title' => $this->translate('Configure the database backend'),
-        'label' => $this->translate('Backend'),
+        'title' => $this->translate('Configure the database backend', 'reporting'),
+        'label' => $this->translate('Backend', 'reporting'),
         'url'   => 'config/backend'
     ));
 
     $this->provideConfigTab('mail', array(
-        'title' => $this->translate('Configure mail'),
-        'label' => $this->translate('Mail'),
+        'title' => $this->translate('Configure mail', 'reporting'),
+        'label' => $this->translate('Mail', 'reporting'),
         'url'   => 'config/mail'
     ));
 }

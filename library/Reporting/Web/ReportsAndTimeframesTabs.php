@@ -17,14 +17,14 @@ trait ReportsAndTimeframesTabs
         $tabs = $this->getTabs();
 
         $tabs->add('reports', [
-                'title'     => $this->translate('Show reports'),
-                'label'     => $this->translate('Reports'),
+                'title'     => $this->translate('Show Reports', 'reporting'),
+                'label'     => $this->translate('Reports', 'reporting'),
                 'url'       => 'reporting/reports'
         ]);
 
         $tabs->add('timeframes', [
-            'title'     => $this->translate('Show time frames'),
-            'label'     => $this->translate('Time Frames'),
+            'title'     => $this->translate('Show Time Frames', 'reporting'),
+            'label'     => $this->translate('Time Frames', 'reporting'),
             'url'       => 'reporting/timeframes'
         ]);
 

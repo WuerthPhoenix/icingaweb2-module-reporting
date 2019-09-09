@@ -10,13 +10,13 @@ class ConfigureMailForm extends ConfigForm
     public function init()
     {
         $this->setName('reporting_mail');
-        $this->setSubmitLabel($this->translate('Save Changes'));
+        $this->setSubmitLabel($this->translate('Save Changes', 'reporting'));
     }
 
     public function createElements(array $formData)
     {
         $this->addElement('text', 'mail_from', [
-            'label'       => $this->translate('From'),
+            'label'       => $this->translate('From', 'reporting'),
             'placeholder' => 'reporting@icinga'
         ]);
     }

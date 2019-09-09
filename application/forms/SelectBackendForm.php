@@ -11,7 +11,7 @@ class SelectBackendForm extends ConfigForm
     public function init()
     {
         $this->setName('reporting_backend');
-        $this->setSubmitLabel($this->translate('Save Changes'));
+        $this->setSubmitLabel($this->translate('Save Changes', 'reporting'));
     }
 
     public function createElements(array $formData)
@@ -19,8 +19,8 @@ class SelectBackendForm extends ConfigForm
         $dbResources = ResourceFactory::getResourceConfigs('db')->keys();
 
         $this->addElement('select', 'backend_resource', [
-            'label'         => $this->translate('Database'),
-            'description'   => $this->translate('Database resource'),
+            'label'         => $this->translate('Database', 'reporting'),
+            'description'   => $this->translate('Database resource', 'reporting'),
             'multiOptions'  => array_combine($dbResources, $dbResources),
             'required'      => true
         ]);

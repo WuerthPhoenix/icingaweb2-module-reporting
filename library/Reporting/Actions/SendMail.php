@@ -108,13 +108,13 @@ class SendMail extends ActionHook
 
         $form->addElement('select', 'type', [
             'required'  => true,
-            'label'     => $this->translate('Type'),
+            'label'     => $this->translate('Type', 'reporting'),
             'options'   => $types
         ]);
 
         $form->addElement('textarea', 'recipients', [
             'required' => true,
-            'label'    => $this->translate('Recipients')
+            'label'    => $this->translate('Recipients', 'reporting')
         ]);
     }
 }

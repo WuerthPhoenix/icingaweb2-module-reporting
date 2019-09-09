@@ -37,8 +37,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'start', [
             'required'            => true,
-            'label'               => $this->translate('Start'),
-            'placeholder'         => $this->translate('Select a start date or provide a textual datetime description'),
+            'label'               => $this->translate('Start', 'reporting'),
+            'placeholder'         => $this->translate('Select a start date or provide a textual date/time description', 'reporting'),
             'data-allow-input'    => true,
             'data-enable-time'    => true,
             'data-enable-seconds' => true,
@@ -47,8 +47,8 @@ class TimeframeForm extends Form
 
         $this->addDecoratedElement($flatpickr, 'text', 'end', [
             'required'             => true,
-            'label'                => $this->translate('End'),
-            'placeholder'          => $this->translate('Select a end date or provide a textual datetime description'),
+            'label'                => $this->translate('End', 'reporting'),
+            'placeholder'          => $this->translate('Select an end date or provide a textual date/time description', 'reporting'),
             'data-allow-input'     => true,
             'data-enable-time'     => true,
             'data-enable-seconds'  => true,
@@ -58,12 +58,12 @@ class TimeframeForm extends Form
         ]);
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? $this->translate('Create Time Frame') : $this->translate('Update Time Frame')
+            'label' => $this->id === null ? $this->translate('Create Time Frame', 'reporting') : $this->translate('Update Time Frame', 'reporting')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => $this->translate('Remove Time Frame'),
+                'label'          => $this->translate('Remove Time Frame', 'reporting'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);
