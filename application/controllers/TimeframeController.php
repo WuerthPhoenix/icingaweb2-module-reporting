@@ -24,7 +24,7 @@ class TimeframeController extends Controller
 
     public function editAction()
     {
-        $this->setTitle($this->translate('Edit Time Frame', 'reporting'));
+        $this->setTitle($this->translate('Edit Time Frame'));
 
         $values = [
             'name'  => $this->timeframe->getName(),

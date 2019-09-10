@@ -24,10 +24,10 @@ class TestController extends Controller
 
         $table->getAttributes()->add('class', 'common-table');
 
-        $table->getHeader()->add(Table::row([$this->translate('Name', 'reporting'),
-                                             $this->translate('Title', 'reporting'),
-                                             $this->translate('Start', 'reporting'),
-                                             $this->translate('End', 'reporting')],
+        $table->getHeader()->add(Table::row([$this->translate('Name'),
+                                             $this->translate('Title'),
+                                             $this->translate('Start'),
+                                             $this->translate('End')],
                                              null, 'th'));
 
         foreach ($this->getDb()->select($select) as $row) {
@@ -45,7 +45,7 @@ class TestController extends Controller
             ]));
         }
 
-        $this->setTitle($this->translate('Time Frames', 'reporting'));
+        $this->setTitle($this->translate('Time Frames'));
 
         $this->addContent($table);
     }

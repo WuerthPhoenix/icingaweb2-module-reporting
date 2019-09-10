@@ -24,7 +24,7 @@ class TimeframesController extends Controller
         $this->createTabs()->activate('timeframes');
 
         $new = new ButtonLink(
-            $this->translate('New Time Frame', 'reporting'),
+            $this->translate('New Time Frame'),
             Url::fromPath('reporting/timeframes/new')->getAbsoluteUrl('&'),
             'plus'
         );
@@ -61,11 +61,11 @@ class TimeframesController extends Controller
                             'tr',
                             null,
                             [
-                                Html::tag('th', null, $this->translate('Name', 'reporting')),
-                                Html::tag('th', null, $this->translate('Start', 'reporting')),
-                                Html::tag('th', null, $this->translate('End', 'reporting')),
-                                Html::tag('th', null, $this->translate('Date Created', 'reporting')),
-                                Html::tag('th', null, $this->translate('Date Modified', 'reporting'))
+                                Html::tag('th', null, $this->translate('Name')),
+                                Html::tag('th', null, $this->translate('Start')),
+                                Html::tag('th', null, $this->translate('End')),
+                                Html::tag('th', null, $this->translate('Date Created')),
+                                Html::tag('th', null, $this->translate('Date Modified'))
                             ]
                         )
                     ),
@@ -75,13 +75,13 @@ class TimeframesController extends Controller
 
             $this->addContent($table);
         } else {
-            $this->addContent(Html::tag('p', null, $this->translate('No time frames created yet.', 'reporting')));
+            $this->addContent(Html::tag('p', null, $this->translate('No time frames created yet.')));
         }
     }
 
     public function newAction()
     {
-        $this->setTitle($this->translate('New Time Frame', 'reporting'));
+        $this->setTitle($this->translate('New Time Frame'));
 
         $form = new TimeframeForm();
         $form->handleRequest(ServerRequest::fromGlobals());

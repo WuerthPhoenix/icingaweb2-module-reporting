@@ -31,19 +31,19 @@ class ReportForm extends Form
 
         $this->addElement('text', 'name', [
             'required'  => true,
-            'label'     => Translator::translate('Name', 'reporting')
+            'label'     => Translator::translate('Name')
         ]);
 
         $this->addElement('select', 'timeframe', [
             'required'  => true,
-            'label'     => Translator::translate('Time Frame', 'reporting'),
-            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $this->listTimeframes()
+            'label'     => Translator::translate('Time Frame'),
+            'options'   => [null => Translator::translate('Please choose')] + $this->listTimeframes()
         ]);
 
         $this->addElement('select', 'reportlet', [
             'required'  => true,
-            'label'     => Translator::translate('Report', 'reporting'),
-            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $this->listReports(),
+            'label'     => Translator::translate('Report'),
+            'options'   => [null => Translator::translate('Please choose')] + $this->listReports(),
             'class'     => 'autosubmit'
         ]);
 
@@ -64,12 +64,12 @@ class ReportForm extends Form
         }
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? Translator::translate('Create Report', 'reporting') : Translator::translate('Update Report', 'reporting')
+            'label' => $this->id === null ? Translator::translate('Create Report') : Translator::translate('Update Report')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => Translator::translate('Remove Report', 'reporting'),
+                'label'          => Translator::translate('Remove Report'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);

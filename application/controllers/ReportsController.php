@@ -24,7 +24,7 @@ class ReportsController extends Controller
         $this->createTabs()->activate('reports');
 
         $newReport = new ButtonLink(
-            $this->translate('New Report', 'reporting'),
+            $this->translate('New Report'),
             Url::fromPath('reporting/reports/new')->getAbsoluteUrl('&'),
             'plus'
         );
@@ -63,11 +63,11 @@ class ReportsController extends Controller
                             'tr',
                             null,
                             [
-                                Html::tag('th', null, $this->translate('Name', 'reporting')),
-                                Html::tag('th', null, $this->translate('Author', 'reporting')),
-                                Html::tag('th', null, $this->translate('Time Frame', 'reporting')),
-                                Html::tag('th', null, $this->translate('Date Created', 'reporting')),
-                                Html::tag('th', null, $this->translate('Date Modified', 'reporting'))
+                                Html::tag('th', null, $this->translate('Name')),
+                                Html::tag('th', null, $this->translate('Author')),
+                                Html::tag('th', null, $this->translate('Time Frame')),
+                                Html::tag('th', null, $this->translate('Date Created')),
+                                Html::tag('th', null, $this->translate('Date Modified'))
                             ]
                         )
                     ),
@@ -77,13 +77,13 @@ class ReportsController extends Controller
 
             $this->addContent($table);
         } else {
-            $this->addContent(Html::tag('p', null, $this->translate('No reports created yet.', 'reporting')));
+            $this->addContent(Html::tag('p', null, $this->translate('No reports created yet.')));
         }
     }
 
     public function newAction()
     {
-        $this->setTitle($this->translate('New Report', 'reporting'));
+        $this->setTitle($this->translate('New Report'));
 
         $form = new ReportForm();
         $form->handleRequest(ServerRequest::fromGlobals());

@@ -58,30 +58,30 @@ class ScheduleForm extends Form
         $this->setDefaultElementDecorator(new DivDecorator());
 
         $frequency = [
-            'minutely' => Translator::translate('Per Minute', 'reporting'),
-            'hourly'   => Translator::translate('Hourly', 'reporting'),
-            'daily'    => Translator::translate('Daily', 'reporting'),
-            'weekly'   => Translator::translate('Weekly', 'reporting'),
-            'monthly'  => Translator::translate('Monthly', 'reporting')
+            'minutely' => Translator::translate('Per Minute'),
+            'hourly'   => Translator::translate('Hourly'),
+            'daily'    => Translator::translate('Daily'),
+            'weekly'   => Translator::translate('Weekly'),
+            'monthly'  => Translator::translate('Monthly')
         ];
 
         $this->addDecoratedElement(new Flatpickr(), 'text', 'start', [
             'required'         => true,
-            'label'            => Translator::translate('Start', 'reporting'),
-            'placeholder'      => Translator::translate('Choose date and time', 'reporting'),
+            'label'            => Translator::translate('Start'),
+            'placeholder'      => Translator::translate('Choose date and time'),
             'data-enable-time' => true
         ]);
 
         $this->addElement('select', 'frequency', [
             'required'  => true,
-            'label'     => Translator::translate('Frequency', 'reporting'),
-            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $frequency,
+            'label'     => Translator::translate('Frequency'),
+            'options'   => [null => Translator::translate('Please choose')] + $frequency,
         ]);
 
         $this->addElement('select', 'action', [
             'required'  => true,
-            'label'     => Translator::translate('Action', 'reporting'),
-            'options'   => [null => Translator::translate('Please choose', 'reporting')] + $this->listActions(),
+            'label'     => Translator::translate('Action'),
+            'options'   => [null => Translator::translate('Please choose')] + $this->listActions(),
             'class'     => 'autosubmit'
         ]);
 
@@ -102,12 +102,12 @@ class ScheduleForm extends Form
         }
 
         $this->addElement('submit', 'submit', [
-            'label' => $this->id === null ? Translator::translate('Create Schedule', 'reporting') : Translator::translate('Update Schedule', 'reporting')
+            'label' => $this->id === null ? Translator::translate('Create Schedule') : Translator::translate('Update Schedule')
         ]);
 
         if ($this->id !== null) {
             $this->addElement('submit', 'remove', [
-                'label'          => Translator::translate('Remove Schedule', 'reporting'),
+                'label'          => Translator::translate('Remove Schedule'),
                 'class'          => 'remove-button',
                 'formnovalidate' => true
             ]);
